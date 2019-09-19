@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="F:\jQueryBasics-master\js\jquery-2.1.4.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <style>
+       th{
+           padding:60px;
+           border:solid 1px;
+       }
+    </style>
+<table id="tab1">
+    <th id="row1"></th>
+    <th id="row2"></th>
+    <th id="row3"></th>
+</table>
+<div>
+    <button type="button" id="color">toggle colors</button>
+    <button type="button" id="round">toggle rounded border</button>
+    <button type="button" id="new">add nex box</button>
+</div>
+
+<script>
+$(document).ready(function(){
+    $("#color").click(function(){
+         var co=["red","green","orange","black"]
+         $('th').each(function(){
+            var newcolor=co[Math.floor(co.length*Math.random())]
+        $(this).css("background-color",newcolor)
+         })
+
+    })
+    $("#round").click(function(){
+        $("th").each(function(){
+            $(this).css("border-radius","100%")
+        })
+    })
+    $("#new").click(function(){
+        $("#tab1").each(function(){
+            $(this).append("<th>"+"</th>")
+        })
+    })
+})
+</script>
+</body>
+</html>
